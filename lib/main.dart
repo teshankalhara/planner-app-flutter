@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:planner_app/pages/add_page/add_page.dart';
+import 'package:planner_app/pages/favourite_page/favourite_page.dart';
+import 'package:planner_app/pages/home_page/home_page.dart';
+import 'package:planner_app/pages/profile_page/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,6 +33,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final List<Widget> _pages = [
+    const HomePage(),
+    const AddPage(),
+    const FavouritePage(),
+    const ProfilePage(),
+  ];
+
   int _selectedIndex = 0;
 
   void setNavigator(int index) {
@@ -69,6 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
+      body: _pages[_selectedIndex],
     );
   }
 }
