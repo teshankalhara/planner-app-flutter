@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:planner_app/constants/colors.dart';
 import 'package:planner_app/constants/consant_values.dart';
 import 'package:planner_app/data/user_data.dart';
+import 'package:planner_app/widgets/card/exercise_card.dart';
 import 'package:planner_app/widgets/card/progress_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -51,6 +52,23 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 ProgressCard(progressValue: 0.3, total: 100),
+
+                const SizedBox(height: 20),
+                const Text(
+                  "Today’s Activity",
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w800,
+                    color: kMainColor,
+                  ),
+                ),
+                const SizedBox(height: 15),
+                ExerciseCard(
+                  title: "Running",
+                  image: "assets/images/exercises/cobra.png",
+                  noOfMinutes: "30",
+                  showMore: true,
+                ),
               ],
             ),
           ),
