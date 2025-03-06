@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:planner_app/constants/colors.dart';
 import 'package:planner_app/constants/consant_values.dart';
 import 'package:planner_app/data/user_data.dart';
+import 'package:planner_app/widgets/card/progress_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -49,6 +50,7 @@ class _HomePageState extends State<HomePage> {
                     color: kMainColor,
                   ),
                 ),
+                ProgressCard(progressValue: 0.3, total: 100),
               ],
             ),
           ),
