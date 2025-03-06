@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:planner_app/pages/main_screen.dart';
+import 'package:planner_app/widgets/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
