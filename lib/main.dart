@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planner_app/widgets/main_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,11 +13,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Planner App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primaryColor: Colors.blue,
+        textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme),
         useMaterial3: true,
       ),
+      title: 'Planner App',
+
       home: MainScreen(),
     );
   }
