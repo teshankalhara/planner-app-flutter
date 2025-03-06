@@ -27,7 +27,6 @@ class ExerciseCard extends StatelessWidget {
         ],
       ),
       child: Container(
-        padding: const EdgeInsets.all(10),
         width: MediaQuery.of(context).size.width * 0.46,
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
         child: Column(
@@ -44,12 +43,12 @@ class ExerciseCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               child: Image.asset(image, fit: BoxFit.cover, width: 100),
             ),
+            const SizedBox(height: 10),
             if (!showMore)
               Text(
                 "$noOfMinutes minutes",
                 style: const TextStyle(fontSize: 15, color: Colors.grey),
               ),
-            const SizedBox(height: 5),
             if (showMore)
               const Text(
                 "see more",
