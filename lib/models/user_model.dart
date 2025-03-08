@@ -32,4 +32,26 @@ class UserModel {
     required this.favExerciseList,
     required this.favEquipmentList,
   });
+
+  //exercises
+  void addExercise(ExerciseModel exercise) {
+    exerciseList.add(exercise);
+  }
+
+  void removeExercise(ExerciseModel exercise) {
+    exerciseList.remove(exercise);
+  }
+
+  void addFavExercise(ExerciseModel exercise) {
+    favExerciseList.add(exercise);
+  }
+
+  void removeFavExercise(ExerciseModel exercise) {
+    favExerciseList.remove(exercise);
+  }
+
+  //equipment
+  void addEquipment(EquipmentModel equipment) {
+    equipmentList.add(equipment);
+  }
 }
