@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:planner_app/constants/colors.dart';
-import 'package:planner_app/constants/consant_values.dart';
 
 class AddExerciseCard extends StatefulWidget {
   final String exerciseTitle;
   final String exerciseImageUrl;
   final int noOfMinutes;
+  final bool isAdded;
+  final bool isFavorite;
+
+  final void Function() toggleAddExercise;
+  final void Function() toggleFavoriteExercise;
 
   const AddExerciseCard({
     super.key,
     required this.exerciseTitle,
     required this.exerciseImageUrl,
     required this.noOfMinutes,
+    required this.toggleAddExercise,
+    required this.isAdded,
+    required this.toggleFavoriteExercise,
+    required this.isFavorite,
   });
 
   @override
@@ -70,9 +78,11 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
                   ),
                   child: Center(
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        widget.toggleAddExercise();
+                      },
                       icon: Icon(
-                        Icons.add,
+                        widget.isAdded ? Icons.remove : Icons.add,
                         size: 30,
                         color: kGradientBottomColor,
                       ),
@@ -89,9 +99,13 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
                   ),
                   child: Center(
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        widget.toggleFavoriteExercise();
+                      },
                       icon: Icon(
-                        Icons.favorite_border,
+                        widget.isFavorite
+                            ? Icons.favorite
+                            : Icons.favorite_border,
                         size: 30,
                         color: kMainPinkColor,
                       ),
