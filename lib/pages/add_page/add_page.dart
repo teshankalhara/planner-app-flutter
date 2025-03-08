@@ -59,14 +59,48 @@ class _AddPageState extends State<AddPage> {
                   height: MediaQuery.of(context).size.height * 0.33,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
+                    itemCount: exerciseList.length,
                     itemBuilder: (context, index) {
                       ExerciseModel exercise = exerciseList[index];
                       return AddExerciseCard(
                         exerciseTitle: exercise.exerciseName,
                         exerciseImageUrl: exercise.exerciseImgUrl,
                         noOfMinutes: exercise.noOfMin,
+                        toggleAddExercise: () {
+                          setState(() {
+                            if (userData.exerciseList.contains(exercise)) {
+                              userData.removeExercise(exercise);
+                              print(userData.exerciseList.length);
+                            } else {
+                              userData.addExercise(exercise);
+                              print(userData.exerciseList.length);
+                            }
+                          });
+                        },
+                        isAdded: userData.exerciseList.contains(exercise),
+                        toggleFavoriteExercise: () {
+                          setState(() {
+                            if (userData.favExerciseList.contains(exercise)) {
+                              userData.removeFavExercise(exercise);
+                              print(userData.favExerciseList.length);
+                            } else {
+                              userData.addFavExercise(exercise);
+                              print(userData.favExerciseList.length);
+                            }
+                          });
+                        },
+                        isFavorite: userData.favExerciseList.contains(exercise),
                       );
                     },
+                  ),
+                ),
+                const SizedBox(height: 15),
+                const Text(
+                  "All Equipment",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    color: kMainColor,
                   ),
                 ),
               ],
