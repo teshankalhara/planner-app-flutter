@@ -66,4 +66,64 @@ class UserModel {
   void removeFavEquipment(EquipmentModel equipment) {
     favEquipmentList.remove(equipment);
   }
+
+  void markExerciseAsCompleted(int exerciseId) {
+    final ExerciseModel exercise = exerciseList.firstWhere(
+      (exercise) => exercise.id == exerciseId,
+    );
+    exercise.isCompleted = true;
+    removeExercise(exercise);
+    totalExercisedCompleted++;
+  }
+
+  void markEquipmentAsHandedOver(int equipmentId) {
+    final equipment = equipmentList.firstWhere(
+      (equipment) => equipment.id == equipmentId,
+    );
+    equipment.isHandOvered = true;
+    removeEquipment(equipment);
+    totalEquipmentHandOvered++;
+  }
+
+  double calculateTotalCaloriesBurned() {
+    double totalCaloriesBurned = 0;
+    for (var exercise in exerciseList) {
+      totalCaloriesBurned += exercise.noOfMin * 0.005;
+    }
+    for (var equipment in equipmentList) {
+      totalCaloriesBurned += equipment.noOfMin * 0.005;
+    }
+    return totalCaloriesBurned;
+  }
+
+  int calculateTotalMinutesSpent() {
+    int totalMinutesSpent = 0;
+    for (var exercise in exerciseList) {
+      totalMinutesSpent += exercise.noOfMin;
+    }
+    for (var equipment in equipmentList) {
+      totalMinutesSpent += equipment.noOfMin;
+    }
+    return totalMinutesSpent;
+  }
+
+  int calculateTotalExercisesCompleted() {
+    int totalExercisesCompleted = 0;
+    for (var exercise in exerciseList) {
+      if (exercise.isCompleted) {
+        totalExercisesCompleted++;
+      }
+    }
+    return totalExercisesCompleted;
+  }
+
+  int calculateTotalEquipmentHandedOver() {
+    int totalEquipmentHandedOver = 0;
+    for (var equipment in equipmentList) {
+      if (equipment.isHandOvered) {
+        totalEquipmentHandedOver++;
+      }
+    }
+    return totalEquipmentHandedOver;
+  }
 }
