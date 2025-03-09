@@ -8,6 +8,11 @@ class AddEquipmentsCard extends StatefulWidget {
   final String equipmentImgUrl;
   final int noOfMin;
   final double noOfCalories;
+  final bool isAdded;
+  final bool isFavorite;
+
+  final void Function() toggleAddEquipment;
+  final void Function() toggleFavoriteEquipment;
 
   const AddEquipmentsCard({
     super.key,
@@ -16,6 +21,10 @@ class AddEquipmentsCard extends StatefulWidget {
     required this.equipmentImgUrl,
     required this.noOfMin,
     required this.noOfCalories,
+    required this.toggleAddEquipment,
+    required this.toggleFavoriteEquipment,
+    required this.isAdded,
+    required this.isFavorite,
   });
 
   @override
@@ -107,9 +116,11 @@ class _AddEquipmentsCardState extends State<AddEquipmentsCard> {
                     ),
                     child: Center(
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          widget.toggleAddEquipment();
+                        },
                         icon: Icon(
-                          Icons.add,
+                          widget.isAdded ? Icons.remove : Icons.add,
                           size: 30,
                           color: kGradientBottomColor,
                         ),
@@ -126,9 +137,13 @@ class _AddEquipmentsCardState extends State<AddEquipmentsCard> {
                     ),
                     child: Center(
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          widget.toggleFavoriteEquipment();
+                        },
                         icon: Icon(
-                          Icons.favorite_border,
+                          widget.isFavorite
+                              ? Icons.favorite
+                              : Icons.favorite_border,
                           size: 30,
                           color: kMainPinkColor,
                         ),
