@@ -54,4 +54,16 @@ class UserModel {
   void addEquipment(EquipmentModel equipment) {
     equipmentList.add(equipment);
   }
+
+  void removeEquipment(EquipmentModel equipment) {
+    equipmentList.remove(equipment);
+  }
+
+  void addFavEquipment(EquipmentModel equipment) {
+    favEquipmentList.add(equipment);
+  }
+
+  void removeFavEquipment(EquipmentModel equipment) {
+    favEquipmentList.remove(equipment);
+  }
 }
