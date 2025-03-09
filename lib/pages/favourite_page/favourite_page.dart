@@ -3,8 +3,6 @@ import 'package:intl/intl.dart';
 import 'package:planner_app/constants/colors.dart';
 import 'package:planner_app/constants/consant_values.dart';
 import 'package:planner_app/data/user_data.dart';
-import 'package:planner_app/models/equipment_model.dart';
-import 'package:planner_app/models/exercise_model.dart';
 import 'package:planner_app/pages/favourite_page/widgets/favoruite_equipment_grid_set.dart';
 import 'package:planner_app/pages/favourite_page/widgets/favourite_exercise_grid_set.dart';
 
