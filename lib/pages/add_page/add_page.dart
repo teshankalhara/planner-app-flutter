@@ -121,6 +121,32 @@ class _AddPageState extends State<AddPage> {
                         equipmentImgUrl: equipment.equipmentImgUrl,
                         noOfMin: equipment.noOfMin,
                         noOfCalories: equipment.noOfCalories,
+                        toggleAddEquipment: () {
+                          setState(() {
+                            if (userData.equipmentList.contains(equipment)) {
+                              userData.removeEquipment(equipment);
+                              print(userData.equipmentList.length);
+                            } else {
+                              userData.addEquipment(equipment);
+                              print(userData.equipmentList.length);
+                            }
+                          });
+                        },
+                        toggleFavoriteEquipment: () {
+                          setState(() {
+                            if (userData.favEquipmentList.contains(equipment)) {
+                              userData.removeFavEquipment(equipment);
+                              print(userData.favEquipmentList.length);
+                            } else {
+                              userData.addFavEquipment(equipment);
+                              print(userData.favEquipmentList.length);
+                            }
+                          });
+                        },
+                        isAdded: userData.equipmentList.contains(equipment),
+                        isFavorite: userData.favEquipmentList.contains(
+                          equipment,
+                        ),
                       );
                     },
                   ),
