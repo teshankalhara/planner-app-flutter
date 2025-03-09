@@ -3,7 +3,7 @@ class ExerciseModel {
   final String exerciseName;
   final String exerciseImgUrl;
   final int noOfMin;
-  final bool isCompleted;
+  bool isCompleted;
 
   ExerciseModel({
     required this.id,
